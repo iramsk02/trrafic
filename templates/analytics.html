@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Analytics</title>
+    <style>
+        /* General Styles */
+        body, html {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #0056b3;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        nav a.active {
+            background-color: #003f7d;
+        }
+
+        /* Page Content */
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h1, h2 {
+            color: #0056b3;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        /* Placeholder for Analytics Data */
+        .analytics-data {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Message Styling */
+        .message {
+            font-size: 18px;
+            color: #333;
+            padding: 10px 0;
+        }
+
+        .no-data {
+            color: #dc3545;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+        <a href="/uploads" class="{% if request.path == '/uploads' %}active{% endif %}">Uploaded Videos</a>
+        <a href="/dashboard" class="{% if request.path == '/dashboard' %}active{% endif %}">Dashboard</a>
+        <a href="/analytics" class="{% if request.path == '/analytics' %}active{% endif %}">Analytics</a>
+        <a href="/map" class="{% if request.path == '/map' %}active{% endif %}">Map</a>
+        <a href="/manual_control" class="{% if request.path == '/manual_control' %}active{% endif %}">Manual Control</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Traffic Analytics</h1>
+        {% if analytics_data %}
+            <div class="analytics-data">
+                <h2>Analytics Data:</h2>
+                <p>{{ analytics_data }}</p>
+            </div>
+        {% else %}
+            <div class="message no-data">
+                <p>No analytics data available. Please analyze a video first.</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

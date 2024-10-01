@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        nav {
+            background-color: #007bff;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #0056b3;
+        }
+        h1 {
+            color: #007bff;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/uploads">Uploaded Videos</a>
+        <a href="/dashboard" class="active">Dashboard</a>
+        <a href="/analytics">Analytics</a>
+        <a href="/map">Map</a>
+        <a href="/manual_control">Manual Control</a>
+    </nav>
+    <h1>Dashboard</h1>
+    <form method="POST" action="/dashboard">
+        <label for="traffic_signal">Select Traffic Signal:</label>
+        <select id="traffic_signal" name="traffic_signal" required>
+            <option value="">--Select Signal--</option>
+            {% for signal in signals %}
+                <option value="{{ signal }}">{{ signal }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Analyze</button>
+    </form>
+    
+    {% if analysis_result %}
+        <h2>Analysis Result for {{ selected_signal }}</h2>
+        <pre>{{ analysis_result }}</pre>
+    {% endif %}
+</body>
+</html>

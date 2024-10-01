@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Management System</title>
+    <style>
+        /* General Styles */
+        body, html {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex; /* Flexbox for layout */
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            background-color: #0056b3; /* Primary Blue */
+            padding: 15px;
+            height: 100vh;
+            position: fixed;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar a {
+            display: block;
+            color: #ffffff; /* White Text */
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #ff4c4c; /* Red Hover Effect */
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 270px; /* Leave space for sidebar */
+            padding: 20px;
+            width: calc(100% - 270px); /* Adjust width */
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #0056b3; /* Primary Blue */
+            font-size: 2.5em;
+        }
+
+        /* Card Styles */
+        .card {
+            background: #ffffff; /* White Background */
+            border: 1px solid #ddd; /* Light Border */
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 700px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Button Styles */
+        .button {
+            background: #0056b3; /* Primary Blue */
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+            display: block;
+            margin: 20px auto;
+            width: 80%;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: #ff4c4c; /* Red Hover Effect */
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333333; /* Black Footer */
+            color: #ffffff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+    <!-- Import Poppins Font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h2 style="color: white;">Menu</h2>
+        <a href="/">Home</a>
+        <a href="/uploads">Uploaded Videos</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/analytics">Analytics</a>
+        <a href="/map">Map View</a>
+        <a href="/manual_control">Manual Control</a> <!-- Added Manual Control Tab -->
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Main Heading -->
+        <h1>Welcome to the Traffic Management System</h1>
+
+        <!-- Card for Introduction and Actions -->
+        <div class="card">
+            <h2>Get Started</h2>
+            <p>This system helps you manage traffic signals efficiently and analyze traffic flow through uploaded video data.</p>
+            <a href="/uploads" class="button">Upload Videos</a>
+            <a href="/dashboard" class="button">Go to Dashboard</a>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            © 2024 Traffic Management System | All rights reserved.
+        </footer>
+    </div>
+</body>
+</html>

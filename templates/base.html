@@ -1,0 +1,72 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Traffic Management System{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body, html {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #0056b3;
+            overflow: hidden;
+            padding: 0 10%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: #ffffff;
+            text-align: center;
+            padding: 18px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #ff4c4c;
+            color: #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333333;
+            color: #ffffff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/uploads">Uploaded Videos</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/analytics">Analytics</a>
+        <a href="/map">Map View</a>
+        <a href="/manual_control">Manual Control</a>
+    </nav>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        © 2024 Traffic Management System | All rights reserved.
+    </footer>
+</body>
+</html>

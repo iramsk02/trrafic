@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Signal Control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        nav {
+            background-color: #007bff;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #0056b3;
+        }
+        h1 {
+            color: #007bff;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .directions {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 5px 0;
+        }
+        .directions div {
+            flex: 1;
+            text-align: center;
+        }
+        .directions div input {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/uploads">Uploaded Videos</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/analytics">Analytics</a>
+        <a href="/map">Map</a>
+        <a href="/manual_control" class="active">Manual Control</a>
+    </nav>
+    <h1>Manual Signal Control</h1>
+    <form method="POST" action="/manual_control">
+        <label for="signal">Select Intersection:</label>
+        <select id="signal" name="signal" required>
+            {% for signal in signals %}
+                <option value="{{ signal }}" {% if signal == selected_signal %}selected{% endif %}>{{ signal }}</option>
+            {% endfor %}
+        </select>
+
+        {% if selected_signal %}
+        <h2>Manual Control for {{ selected_signal }}</h2>
+        <div class="directions">
+            <div>
+                <h3>North</h3>
+                <input type="radio" name="{{ selected_signal }}_North" value="Red" {% if control_data[selected_signal]["North"] == "Red" %}checked{% endif %}> Red
+                <input type="radio" name="{{ selected_signal }}_North" value="Yellow" {% if control_data[selected_signal]["North"] == "Yellow" %}checked{% endif %}> Yellow
+                <input type="radio" name="{{ selected_signal }}_North" value="Green" {% if control_data[selected_signal]["North"] == "Green" %}checked{% endif %}> Green
+            </div>
+            <div>
+                <h3>South</h3>
+                <input type="radio" name="{{ selected_signal }}_South" value="Red" {% if control_data[selected_signal]["South"] == "Red" %}checked{% endif %}> Red
+                <input type="radio" name="{{ selected_signal }}_South" value="Yellow" {% if control_data[selected_signal]["South"] == "Yellow" %}checked{% endif %}> Yellow
+                <input type="radio" name="{{ selected_signal }}_South" value="Green" {% if control_data[selected_signal]["South"] == "Green" %}checked{% endif %}> Green
+            </div>
+        </div>
+        <div class="directions">
+            <div>
+                <h3>East</h3>
+                <input type="radio" name="{{ selected_signal }}_East" value="Red" {% if control_data[selected_signal]["East"] == "Red" %}checked{% endif %}> Red
+                <input type="radio" name="{{ selected_signal }}_East" value="Yellow" {% if control_data[selected_signal]["East"] == "Yellow" %}checked{% endif %}> Yellow
+                <input type="radio" name="{{ selected_signal }}_East" value="Green" {% if control_data[selected_signal]["East"] == "Green" %}checked{% endif %}> Green
+            </div>
+            <div>
+                <h3>West</h3>
+                <input type="radio" name="{{ selected_signal }}_West" value="Red" {% if control_data[selected_signal]["West"] == "Red" %}checked{% endif %}> Red
+                <input type="radio" name="{{ selected_signal }}_West" value="Yellow" {% if control_data[selected_signal]["West"] == "Yellow" %}checked{% endif %}> Yellow
+                <input type="radio" name="{{ selected_signal }}_West" value="Green" {% if control_data[selected_signal]["West"] == "Green" %}checked{% endif %}> Green
+            </div>
+        </div>
+        <button type="submit">Update Signal</button>
+        {% endif %}
+    </form>
+</body>
+</html>

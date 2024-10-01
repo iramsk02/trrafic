@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map View</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+        nav {
+            background: linear-gradient(135deg, #007bff, #6f42c1);
+            overflow: hidden;
+            padding: 0 10%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: #ffffff;
+            text-align: center;
+            padding: 18px 20px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        #map {
+            height: 500px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/uploads">Uploaded Videos</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/analytics">Analytics</a>
+        <a href="/map">Map View</a>
+    </nav>
+
+    <h1>Map View</h1>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([20.5937, 78.9629], 5); // Set the view to India
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Example marker; replace with your model data
+        L.marker([20.5937, 78.9629]).addTo(map)
+            .bindPopup('Traffic Incident Location')
+            .openPopup();
+    </script>
+</body>
+</html>

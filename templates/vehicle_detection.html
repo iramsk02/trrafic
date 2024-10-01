@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Vehicle Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        nav {
+            background-color: #007bff;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #0056b3;
+        }
+        h1 {
+            color: #007bff;
+        }
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/uploads">Uploaded Videos</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/analytics">Analytics</a>
+        <a href="/map">Map View</a>
+        <a href="/vehicle_detection">Live Vehicle Detection</a>
+    </nav>
+    <h1>Live Vehicle Detection Data</h1>
+    <table>
+        <tr>
+            <th>Signal Location</th>
+            <th>Vehicles Detected</th>
+        </tr>
+        {% for data in detected_vehicles %}
+        <tr>
+            <td>{{ data.signal }}</td>
+            <td>{{ data.vehicles_detected }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
