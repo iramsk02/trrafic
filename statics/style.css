@@ -1,0 +1,105 @@
+/* General Styles */
+body, html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2 {
+    color: #007bff;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #007bff;
+    color: #fff;
+    overflow: hidden;
+}
+
+nav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #0056b3;
+}
+
+nav a.active {
+    background-color: #0056b3;
+}
+
+/* Container Styles */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Video List */
+.video-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.video-item {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.video-item button {
+    background-color: #dc3545;
+}
+
+.video-item button:hover {
+    background-color: #c82333;
+}
+
+/* Manual Control Styles */
+.control-panel {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.signal-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signal-control select {
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.signal-control button {
+    width: 100px;
+}
