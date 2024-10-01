@@ -1,0 +1,7 @@
+runtime: python310  # Use the appropriate runtime for your app
+entrypoint: gunicorn -b :$PORT app:app  # Replace 'app' with your Flask app's name
+
+
+handlers:
+- url: /.*
+  script: auto
